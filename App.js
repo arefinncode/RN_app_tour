@@ -4,6 +4,8 @@
  * @flow
  */
 
+
+
 import React, { Component } from 'react'
 import {
   Platform,
@@ -35,11 +37,17 @@ export default class App extends Component<{}> {
   }
 
   componentWillMount() {
+
+      // this.register_Sequence_Step_Event()
+      // this.register_Finish_Sequence_Event()
     this.registerSequenceStepEvent()
     this.registerFinishSequenceEvent()
   }
 
   componentDidMount() {
+      // appTourSequence is a larger container that holds appTourTarget
+      // appTourSequence=  array_of(appTourTarget);
+      // this.appTourTargets
     setTimeout(() => {
       let appTourSequence = new AppTourSequence()
       this.appTourTargets.forEach(appTourTarget => {
@@ -55,9 +63,9 @@ export default class App extends Component<{}> {
       this.sequenceStepListener.remove()
     }
     this.sequenceStepListener = DeviceEventEmitter.addListener(
-      'onShowSequenceStepEvent',
+      'onShowSequenceStepEvent121212121',
       (e: Event) => {
-        console.log(e)
+        console.log("onShowSequenceStepEvent:",e)
       }
     )
   }
@@ -67,9 +75,9 @@ export default class App extends Component<{}> {
       this.finishSequenceListener.remove()
     }
     this.finishSequenceListener = DeviceEventEmitter.addListener(
-      'onFinishSequenceEvent',
+      'onFinishSequenceEvent123123123',
       (e: Event) => {
-        console.log(e)
+        console.log("onFinishSequenceEvent:",e)
       }
     )
   }
@@ -79,6 +87,8 @@ export default class App extends Component<{}> {
       <View style={styles.container}>
         <Top
           style={styles.top}
+
+          // addAppTourTarget is called from Top file
           addAppTourTarget={appTourTarget => {
             this.appTourTargets.push(appTourTarget)
           }}
@@ -116,3 +126,7 @@ const styles = StyleSheet.create({
     flex: 1
   }
 })
+
+
+
+

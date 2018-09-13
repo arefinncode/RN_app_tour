@@ -58,10 +58,15 @@ class Top extends Component {
               targetRadius: 100
             }
 
+
+              // addAppTourTarget is called from here , residing in App.js file.
             this.props.addAppTourTarget &&
               this.props.addAppTourTarget(AppTourView.for(ref, { ...props }))
-          }}
+             }
+          }
           onPress={() => {}}
+
+
         />
       </View>
     )
